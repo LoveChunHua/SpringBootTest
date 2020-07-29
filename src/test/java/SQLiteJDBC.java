@@ -1,8 +1,12 @@
+import org.springframework.boot.test.context.SpringBootTest;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+//jdbc:sqlite://D:/15Project/test.db
+@SpringBootTest
 public class SQLiteJDBC
 {
     public static void main1( String args[] )
@@ -10,16 +14,12 @@ public class SQLiteJDBC
         Connection c = null;
         Statement stmt = null;
         try {
-            //Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite://D:/15Project/test2.db");
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:test.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "DELETE from COMPANY where ID=3;";
-            stmt.executeUpdate(sql);
-            c.commit();
-
             ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
             while ( rs.next() ) {
                 int id = rs.getInt("id");

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div align="right"><a href="/logout">退出</a><br/></div>
-    你好, ${name!}, 现在时间 ${date!}  <a href="/test">/test</a><br>
-    <a href="/data">/data</a>
+    你好, ${id!}, 现在时间 ${app_id!}  ${name!}  ${size!}  ${path!} <br>
+    ${md5!}  ${create_time!} ${del}
 </body>
 </html>
